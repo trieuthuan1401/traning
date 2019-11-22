@@ -25,7 +25,7 @@ const inventors = [
 // })
 // console.log(evenNumbers);
 
-
+// var evenNumbers = numbers.filter(x => (x%2 ===0 ));
 
 
 // // Lấy những người sinh năm 1500 và bé hơn 1600
@@ -124,22 +124,3 @@ const alpha  = people.sort((a,b) =>{
     const [last , first ] = a.split(',');
     // console.log(last, first);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

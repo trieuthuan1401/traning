@@ -1,6 +1,6 @@
 const h1 = document.querySelector('h1');
 console.log(h1);
-// Tính vị trí của h1 so với top
+// Tính vị trí của h1 đến top
 var offset = h1.offsetTop;
 console.log(offset);
 

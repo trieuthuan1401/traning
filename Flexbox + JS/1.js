@@ -10,3 +10,10 @@ for (let index = 0; index < panels.length; index++) {
     panels[index].classList.toggle('open-active');
   }
 }
+
+// function toggleOpen(){
+//   this.classList.toggle('open');
+//   this.classList.toggle('open-active');
+// }
+
+// panels.forEach( item => item.addEventListener('click' , toggleOpen));
