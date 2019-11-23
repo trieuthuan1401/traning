@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+  
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/clap.wav"></audio>
+  <audio data-key="68" src="sounds/clap.wav"></audio>
+  <audio data-key="70" src="sounds/clap.wav"></audio>
+  <audio data-key="71" src="sounds/clap.wav"></audio>
+  <audio data-key="72" src="sounds/clap.wav"></audio>
+  <audio data-key="74" src="sounds/clap.wav"></audio>
+  <audio data-key="75" src="sounds/clap.wav"></audio>
+  <audio data-key="76" src="sounds/clap.wav"></audio>
+
+  <script>
+    // keycode.info
+    // keydown là sự kiện kích hoạt khi nhấn phím
+    window.addEventListener('keydown', (e) => {
+      // e.keyCode là mã key của bàn phím mà chúng ta nhấn
+      // const audio = document.querySelectorAll('audio');
+      // Lấy 1 div có keycode tương ứng ở trên
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      // Nếu có phím đó thì play ngược lại thì thoát
+      if (!audio) return;
+      // Thuộc tính currentTime đặt hoặc trả về vị trí hiện tại (tính bằng giây) của phát lại âm thanh.
+      // Khi cài đặt thuộc tính này, phát lại sẽ nhảy đến vị trí đã chỉ định.
+      audio.currentTime = 0;
+      audio.play();
+      key.classList.add('playing');
+      // key.classList.remove('p');
+      // Hàm setTimeout() dùng để thiết lập 1 khoảng thời gian nào đó
+      // sẽ thực hiện một nhiệm vụ nào đó và nó chỉ thực hiện đúng 1 lần
+      // setTimeout(() => {
+
+      // }, 0.07);
+      // console.log(audio);
+      // console.log(e.keyCode);
+    });
+    const keys = document.querySelectorAll('.key');
+    function removeTransition(e) {
+      // if (e.propertyName !== 'transform') return;
+      // this.classList.remove('playing');
+      if(e.propertyName === 'transform'){
+        // console.log(e.propertyName);
+        this.classList.remove('playing');
+      }
+      // console.log(e.propertyName);
+    }
+    //transitionend sự kiện này kích hoạt khi quá trình chuyển đổi css đã hoàn thành
+    // Chạy qua tất cả các keys coi cái nào có thuộc tính transform rồi thì remove class playing hết
+    keys.forEach(item => item.addEventListener('transitionend', removeTransition));
+
+
+  
+  </script>
+</body> 
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+const pressed = [];
+const secretCode = 'thuan';
+// console.log(-secretCode.length-1);
+
+window.addEventListener('keydown', (e) => {
+  console.log(e.key);
+//Thêm chữ đó vào mảng pressed
+  pressed.push(e.key);
+//   Xoá tất cả các phần tử trở về trái
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+//Hàm join để ta đưa các phần tử trong mảng đó thành 1 chuỗi rồi sử dụng includes xem cái mảng
+// pressed sau khi join có giống với secretCode không nếu giống thì thực hiện cái này cornify_add();
+  if (pressed.join('').includes(secretCode)) {
+    console.log('DING DING!');
+    cornify_add();
+  }
+  console.log(pressed);
+});
+</script>
+</body>
+</html>

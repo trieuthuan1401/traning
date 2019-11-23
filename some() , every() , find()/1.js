@@ -74,3 +74,6 @@ console.table(comments);
 //item1 và item2 các phần tử được thêm vào vị trí index
 
 
+var characterss = [1,2,3,5,6];
+characterss.splice(0,3);
+console.log(characterss);

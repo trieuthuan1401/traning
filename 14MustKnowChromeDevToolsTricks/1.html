@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Console Tricks!</title>
+</head>
+
+<body>
+    <p onclick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+        const heroes = [
+            {
+                name: "LieuTrieuThuan",
+                age: 21,
+            },
+            {
+                name: "NguyenNhatThien",
+                age: 21,
+            },
+        ];
+        function makeGreen() {
+            const p = document.querySelector('p');
+            p.style.color = '#ffa900';
+            p.style.fontSize = '20px';
+            p.style.fontFamily = 'segoe ui light';
+            p.style.fontWeight = 'bold';
+        };
+        // Phải đặt %c ở trước thì các thuộc tính css ở sau nó mới hiểu
+        console.log('%c Im lllieutrieuthuan' , 'font-size : 20px ; color : #ffa900');
+        console.warn('lllieutrieuthuan');
+        console.error('lllieutrieuthuan');
+        console.info('lllieutrieuthuan');
+        console.assert( 1===1 , 'that is wrong' );
+        console.clear();
+        const p = document.querySelector('p');
+        // console.dir(p);
+        heroes.forEach(hero => {
+            console.group(`${hero.name}`);
+            console.logs(`Name : ${hero.name} !!! Age : ${hero.age}`);
+            console.groupEnd();
+        });
+        // console.count('lllieutrieuthuan');
+        // console.count('lllieutrieuthuan');
+        // console.count('lllieutrieuthuann');
+        // console.time('fetching data');        
+    </script>
+    
+</body>
+</html>

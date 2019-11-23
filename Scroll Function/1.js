@@ -2,7 +2,7 @@ const h1 = document.querySelector('h1');
 console.log(h1);
 // Tính vị trí của h1 đến top
 var offset = h1.offsetTop;
-console.log(offset);
+// console.log(offset);
 
 window.addEventListener("scroll",function(){
     // Tính vị trí người dùng khi cuộn chuột
@@ -19,3 +19,4 @@ window.addEventListener("scroll",function(){
 //     // Tính vị trí người dùng cuộn chuột 
 //     var vitri = $('html').scrollTop();
 // });
+
